@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
-import Header from "./componets/Header";
-import Navbar from "./componets/Navbar";
-import Profile from "./componets/Profile";
+import Header from "./componets/Header/Header";
+import Navbar from "./componets/Navbar/Navbar";
+import MyPosts from "./componets/Profile/MyPosts/MyPosts";
+import Profile from "./componets/Profile/Profile";
 
 
 const App = () => {
@@ -12,12 +13,10 @@ const App = () => {
             <Navbar/>
             <Profile/>
 
-
         </div>
 
 
-
-);
+    );
 }
 
 export default App;
