@@ -3,17 +3,29 @@ import s from './MyPosts.module.css'
 import Post from "./Post/Post";
 
 const MyPosts = () => {
+    let postData = [
+        {id: 1, message: 'Hi, how are you?', likeCount: 12},
+        {id: 2, message: 'My first post', likeCount: 23},
+        {id: 3, message: 'My first post', likeCount: 23},
+        {id: 4, message: 'My first post', likeCount: 23},
+        {id: 5, message: 'My first post', likeCount: 23},
+        {id: 6, message: 'My first post', likeCount: 23},
+    ]
     return (
-        <div>
-            My post
+        <div className={s.postsBlock}>
+            <h3>My post</h3>
             <div>
-                <textarea> </textarea>
-                <button>Add post</button>
-                <button>Remove</button>
+                <div>
+                    <textarea> </textarea>
+                </div>
+                <div>
+                    <button>Add post</button>
+                    <button>Remove</button>
+                </div>
             </div>
             <div className={s.posts}>
-                <Post message='Hi, how are you?' likeCount='0'/>
-                <Post message='My first post' likeCount='23'/>
+                <Post message={postData[0].message} likeCount={postData[0].likeCount}/>
+                <Post message={postData[1].message} likeCount={postData[1].likeCount}/>
             </div>
         </div>
     )

@@ -1,18 +1,15 @@
 import React from 'react';
 import s from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
+import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-    return <div>
-        <div className={s.content}>
-            <img src='https://pbs.twimg.com/media/CvdRNI4WgAAb5Zz.jpg:large'/>
-        </div>
+    return (
         <div>
-            ava + description
+            <ProfileInfo/>
+            <MyPosts/>
         </div>
-        <MyPosts/>
-    </div>
-
+    )
 }
 
 
