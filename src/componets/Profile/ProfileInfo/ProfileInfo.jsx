@@ -6,7 +6,7 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div>
-                <img src='https://pbs.twimg.com/media/CvdRNI4WgAAb5Zz.jpg:large'/>
+                <img src='https://i.ytimg.com/vi/-kG_-dl99qg/maxresdefault.jpg'/>
             </div>
             <div className={s.descriptionBlock}>
                 ava + description
