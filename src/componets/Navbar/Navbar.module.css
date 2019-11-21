@@ -1,14 +1,28 @@
-.nav {
+/*.nav {
     grid-area: n;
     background-color: rgba(128, 128, 128, 0.7);
     padding: 20px;
-}
+}*/
 
 .item a {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 
 .item a.activeLink {
-    color: gold;
+    color: rgb(49, 50, 255);
 }
+
+
+.nav {
+    grid-column: 1;
+    grid-row: 2;
+    background-color: #bbc4ca;
+    border-radius: 4px;
+    padding-top: 10px;
+    text-indent: 30px;
+    line-height: 25px;
+
+}
+
+
