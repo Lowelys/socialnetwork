@@ -1,8 +1,9 @@
-/*.nav {
+.nav {
     grid-area: n;
-    background-color: rgba(128, 128, 128, 0.7);
+    background-color: #b9c4cc;
     padding: 20px;
-}*/
+    border-radius: 5px;
+}
 
 .item a {
     color: black;
@@ -10,19 +11,5 @@
 }
 
 .item a.activeLink {
-    color: rgb(49, 50, 255);
+    color: red;
 }
-
-
-.nav {
-    grid-column: 1;
-    grid-row: 2;
-    background-color: #bbc4ca;
-    border-radius: 4px;
-    padding-top: 10px;
-    text-indent: 30px;
-    line-height: 25px;
-
-}
-
-
