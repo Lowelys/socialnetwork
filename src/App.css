@@ -2,29 +2,19 @@
     margin: 0 auto;
     display: grid;
     width: 1200px;
-    height: 100vh;
-/*    grid-template-areas: 'h h' 'n c';
+/*    width: auto;*/
+    grid-template-areas: 'h h' 'n c';
+
     grid-template-rows: 60px 1fr;
     grid-template-columns: 2fr 10fr;
-    grid-gap: 1px;*/
-
-    grid-template-rows: 60px 1fr;
-    grid-template-columns: 2.5fr 10fr;
-    grid-gap: 5px;
-
-
-
+    grid-gap: 2px;
 
 }
 
 .app-wrapper-content {
-/*  grid-area: c;*/
+  grid-area: c;
   background-color: #b9c4cc;
   color: black;
-
-    grid-column: 2;
-    grid-row: 2;
-
 
 }
 
