@@ -1,12 +1,10 @@
- import React from 'react';
+import React from 'react';
 import './App.css';
 import Header from "./componets/Header/Header";
 import Navbar from "./componets/Navbar/Navbar";
 import Profile from "./componets/Profile/Profile";
 import Dialogs from "./componets/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
-
-/*let someComponent = () => <Dialogs/>*/
 
 
 const App = (props) => {
@@ -17,10 +15,11 @@ const App = (props) => {
                 <Header/>
                 <Navbar/>
                 <div className='app-wrapper-content'>
-
-                    <Route path='/dialogs' render={() => <Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-                    <Route path='/profile' render={() => <Profile posts={props.posts}/>}/>
-
+                    <Route path='/dialogs'
+                           render={() =>
+                               <Dialogs state={props.state.dialogsPage}/>}/>
+                    <Route path='/profile' render={() =>
+                        <Profile state={props.state.profilePage}/>}/>
                 </div>
             </div>
         </BrowserRouter>
@@ -28,3 +27,4 @@ const App = (props) => {
 }
 
 export default App;
+
