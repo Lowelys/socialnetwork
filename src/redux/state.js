@@ -1,4 +1,4 @@
-let State = {
+let state = {
     profilePage: {
         posts: [
             {id: 1, message: 'Hi, how are you?', likeCount: 12},
@@ -27,9 +27,17 @@ let State = {
             {id: 5, name: 'Valera'},
             {id: 6, name: 'Sergey'},
         ]
-    }
-
+    },
+    sidebar: {}
+}
+export let addPost = (postMessage ) => {
+        let newPost = {
+            id: 5,
+            message: postMessage,
+            likeCount: 0
+};
+    state.profilePage.posts.push (newPost);
 
 }
 
-export default State;
+export default state;
