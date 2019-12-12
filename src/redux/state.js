@@ -28,33 +28,36 @@ let store = {
                 {id: 4, name: 'Sveta'},
                 {id: 5, name: 'Valera'},
                 {id: 6, name: 'Sergey'},
-            ]
+            ],
         },
         sidebar: {}
     },
-   getState () {
+
+    getState() {
         return this._state;
-   },
-    _callSubscriber () {
+    },
+    _callSubscriber() {
         console.log('State changed');
     },
-    addPost()  {
+
+    addPost() {
         let newPost = {
             id: 5,
             message: this._state.profilePage.newPostText,
             likeCount: 0
         };
-        this._state.profilePage.posts.push (newPost);
-        this._state.profilePage.newPostText='';
-        this._callSubscriber(this._state);
 
+        this._state.profilePage.posts.push(newPost);
+        this._state.profilePage.newPostText = '';
+        this._callSubscriber(this._state);
     },
-    updateNewPostText (newText) {
+
+    updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this._callSubscriber(this._state);
-
     },
-    subscribe (observer) {
+
+    subscribe(observer) {
         this._callSubscriber(observer);
     },
 
@@ -63,4 +66,4 @@ let store = {
 
 export default store;
 
-window.state = store;
+window.store = store;
