@@ -5,10 +5,10 @@ import Navbar from "./componets/Navbar/Navbar";
 import Profile from "./componets/Profile/Profile";
 import Dialogs from "./componets/Dialogs/Dialogs";
 import {BrowserRouter, Route} from "react-router-dom";
+import DialogsContainer from "./componets/Dialogs/DialogsContainer";
 
 
 const App = (props) => {
-
     return (
 
             <div className='app-wrapper'>
@@ -17,11 +17,9 @@ const App = (props) => {
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
                            render={() =>
-                               <Dialogs store={props.store} />}/>
+                               <DialogsContainer store={props.store} />}/>
                     <Route path='/profile' render={() =>
-                        <Profile
-                            profilePage={props.state.profilePage}
-                                 dispatch={props.dispatch} /> }/>
+                        <Profile store={props.store} /> }/>
                 </div>
             </div>
 
