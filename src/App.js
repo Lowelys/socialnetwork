@@ -9,7 +9,6 @@ import DialogsContainer from "./componets/Dialogs/DialogsContainer";
 
 const App = (props) => {
     return (
-
             <div className='app-wrapper'>
                 <Header/>
                 <Navbar/>
@@ -20,9 +19,8 @@ const App = (props) => {
                         <Profile /> }/>
                 </div>
             </div>
-
     );
-}
+};
 
 export default App;
 
