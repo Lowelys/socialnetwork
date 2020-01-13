@@ -1,17 +1,18 @@
 import React from 'react';
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 import {
     follow,
-    setUsers,
-    unfollow,
     setCurrentPage,
+    setUsers,
     setTotalUsersCount,
-    toggleIsFetching
-} from "../../redux/users-reducer";
-import * as axios from "axios";
-import Users from "./Users";
+    toggleIsFetching,
+    unfollow
+} from '../../redux/users-reducer';
+import * as axios from 'axios';
+import Users from './Users';
 import preloader from './../../assets/images/Spinner.svg';
 import Preloader from "../common/Preloader/Preloader";
+
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -26,6 +27,7 @@ class UsersContainer extends React.Component {
 
     onPageChanged = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
+        this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
             .then(response => {
                 this.props.toggleIsFetching(false);
@@ -45,7 +47,7 @@ class UsersContainer extends React.Component {
                    unfollow={this.props.unfollow}
             />
         </>
-    }
+    };
 }
 
 let mapStateToProps = (state) => {
@@ -58,28 +60,5 @@ let mapStateToProps = (state) => {
     }
 };
 
-/*let mapDispatchToProps = (dispatch) => {
-   return {
-       follow: (userId) => {
-           dispatch(followAC(userId));
-       },
-       unfollow: (userId) => {
-           dispatch(unfollowAC(userId));
-       },
-       setUsers: (users) => {
-           dispatch(setUsersAC(users));
-       },
-       setCurrentPage: (pageNumber) => {
-           dispatch(setCurrentPageAC(pageNumber))
-       },
-       setTotalUsersCount: (totalCount) => {
-           dispatch(setUsersTotalCountAC(totalCount))
-       },
-       toggleIsFetching: (isFetching) => {
-           dispatch(toggleIsFetchingAC(isFetching));
-       }
-   }
-};
-*/
 export default connect(mapStateToProps,
     {follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching})(UsersContainer);
