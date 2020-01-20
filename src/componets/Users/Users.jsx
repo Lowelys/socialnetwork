@@ -50,10 +50,13 @@ let Users = (props) => {
                             : <button onClick={() => {
 
                                 axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {}, {
-                                    withCredentials: true
+                                    withCredentials: true,
+                                    headers: {
+                                        'API-KEY': '279228c3-424a-4fec-9955-c1d11ad9779f'
+                                    }
                                 })
                                     .then(response => {
-                                        if (response.data.resultCode === 0) {
+                                        if (response.data.resultCode == 0) {
                                             props.follow(u.id);
                                     }
                                     });
