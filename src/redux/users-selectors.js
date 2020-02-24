@@ -31,4 +31,4 @@ export const getFollowingInProgress = (state) => {
 export const countSomethingDifficult = (state) => {
     let count = 23;
     return count;
-}
+};
