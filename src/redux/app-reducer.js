@@ -27,8 +27,8 @@ export const initializeApp = () => (dispatch) => {
     let promise =  dispatch(getAuthUserData());
     Promise.all([promise])
         .then(() => {
-        dispatch(initializedSuccess());
-    });
+            dispatch(initializedSuccess());
+        });
 };
 
 export default appReducer;
