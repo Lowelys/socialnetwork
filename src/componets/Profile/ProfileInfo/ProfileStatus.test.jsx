@@ -6,11 +6,11 @@ describe("ProfileStatus component", () => {
     test("status from props should be in the state", () => {
         const component = create(<ProfileStatus status="social-network" />);
         const instance = component.getInstance();
-        expect(instance.state.status).toBe("social-network\"");
+        expect(instance.state.status).toBe("social-network");
     });
 
     test("after creation <span> should be displayed", () => {
-        const component = create(<ProfileStatus status="social-network"" />);
+        const component = create(<ProfileStatus status="social-network" />);
         const root = component.root;
         let span = root.findByType("span");
         expect(span).not.toBeNull();
@@ -36,7 +36,7 @@ describe("ProfileStatus component", () => {
         let span = root.findByType("span");
         span.props.onDoubleClick();
         let input = root.findByType("input");
-        expect(input.props.value).toBe("social-network\");
+        expect(input.props.value).toBe("social-network");
     });
 
     test("callback should be called", () => {
