@@ -4,9 +4,8 @@ import userPhoto from '../../assets/images/avatar.jpg';
 import {NavLink} from 'react-router-dom';
 
 
-
 let User = ({user, followingInProgress, unfollow, follow}) => {
-    return    <div>
+    return <div>
                 <span>
                     <div>
                        <NavLink to={'/profile/' + user.id}>
@@ -18,10 +17,14 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                         {user.followed
                             ? <button disabled={followingInProgress
                                 .some(id => id === user.id)}
-                                      onClick={() => {unfollow(user.id) }}>
+                                      onClick={() => {
+                                          unfollow(user.id)
+                                      }}>
                                 Unfollow</button>
                             : <button disabled={followingInProgress.some(id => id === user.id)}
-                                      onClick={() => {follow(user.id) }}>
+                                      onClick={() => {
+                                          follow(user.id)
+                                      }}>
                                 Follow</button>}
                     </div>
                 </span>
@@ -35,8 +38,6 @@ let User = ({user, followingInProgress, unfollow, follow}) => {
                         <div>{'user.location.city'}</div>
                     </span>
                 </span>
-
-        }
     </div>
 };
 
