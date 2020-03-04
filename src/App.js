@@ -1,17 +1,19 @@
 import React from 'react';
 import './App.css';
-import Navbar from "./componets/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import {BrowserRouter, Route, withRouter} from "react-router-dom";
-import DialogsContainer from "./componets/Dialogs/DialogsContainer";
-import UsersContainer from "./componets/Users/UsersContainer";
-import ProfileContainer from "./componets/Profile/ProfileContainer";
-import HeaderContainer from "./componets/Header/HeaderContainer";
-import LoginPage from "./componets/Login/Login";
+import UsersContainer from "./components/Users/UsersContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import LoginPage from "./components/Login/Login";
 import {connect, Provider} from "react-redux";
 import {compose} from "redux";
 import {initializeApp} from "./redux/app-reducer";
-import Preloader from "./componets/common/Preloader/Preloader";
+import Preloader from "./components/common/Preloader/Preloader";
 import store from "./redux/redux-store";
+import {withSuspense} from "./hoc/withSuspense";
+
+const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
 
 class App extends React.Component {
     componentDidMount() {
@@ -28,9 +30,9 @@ class App extends React.Component {
                 <Navbar/>
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs'
-                           render={() => <DialogsContainer/>}/>
+                           render={withSuspense(DialogsContainer)}/>
                     <Route path='/profile/:userId?'
-                           render={() => <ProfileContainer/>}/>
+                           render={withSuspense(ProfileContainer)} />
                     <Route path='/users'
                            render={() => <UsersContainer/>}/>
                     <Route path='/login'
