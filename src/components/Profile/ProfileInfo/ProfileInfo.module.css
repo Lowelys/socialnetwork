@@ -2,3 +2,12 @@
     padding: 10px;
     border-radius: 5px;
 }
+
+.mainPhoto {
+    max-width: 160px;
+
+}
+
+.imgBlock {
+    height: 307px;
+}
