@@ -1,12 +1,23 @@
 .paginator {
     margin: 10px;
+
 }
 .pageNumber {
     padding: 2px;
     border: 1px solid grey;
+    padding-left: 8px;
+    padding-right: 8px;
 }
 
 .pageNumber.selectedPage {
     font-weight: bold;
     border-color: black;
 }
+
+.btn {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+

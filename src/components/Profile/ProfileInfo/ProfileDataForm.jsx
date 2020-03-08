@@ -36,7 +36,7 @@ const ProfileDataForm = ({handleSubmit, profile, error}) => {
         })}
         </div>
     </form>
-}
+};   
 
 const ProfileDataFormReduxForm = reduxForm({form: 'edit-profile'})(ProfileDataForm)
 
