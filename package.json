@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://lowelys.github.io/socialnetwork",
   "dependencies": {
+    "@types/classnames": "^2.2.10",
     "@types/jest": "^25.1.4",
     "@types/node": "^13.9.0",
     "@types/react": "^16.9.23",
