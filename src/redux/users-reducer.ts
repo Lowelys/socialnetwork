@@ -21,17 +21,17 @@ let initialState = {
 
 type InitialState = typeof initialState;
 
-const usersReducer = (state = initialState, action: any): InitialState => {
+const usersReducer = (state = initialState, action: ActionTypes): InitialState => {
     switch (action.type) {
         case FOLLOW:
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.userId, "id", {followed: true} )
+                users: updateObjectInArray(state.users, action.userId, "id", {followed: true})
             }
         case UNFOLLOW:
             return {
                 ...state,
-                users: updateObjectInArray(state.users, action.userId, "id", {followed: false} )
+                users: updateObjectInArray(state.users, action.userId, "id", {followed: false})
             }
         case SET_USERS: {
             return {...state, users: action.users}
@@ -58,6 +58,10 @@ const usersReducer = (state = initialState, action: any): InitialState => {
     }
 }
 
+type ActionTypes = FollowSuccessActionType | UnfollowSuccessActionType | SetUsersActionType |
+    SetCurrentPageActionType | SetTotalUsersCountActionType | ToggleIsFetchingActionType |
+    ToggleFollowingProgressActionType
+
 
 type FollowSuccessActionType = {
     type: typeof FOLLOW
@@ -83,12 +87,18 @@ type SetTotalUsersCountActionType = {
     type: typeof SET_TOTAL_USERS_COUNT
     count: number
 }
-export const setTotalUsersCount = (totalUsersCount: number): SetTotalUsersCountActionType => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
+export const setTotalUsersCount = (totalUsersCount: number): SetTotalUsersCountActionType => ({
+    type: SET_TOTAL_USERS_COUNT,
+    count: totalUsersCount
+})
 type ToggleIsFetchingActionType = {
     type: typeof TOGGLE_IS_FETCHING
     isFetching: boolean
 }
-export const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingActionType => ({type: TOGGLE_IS_FETCHING, isFetching})
+export const toggleIsFetching = (isFetching: boolean): ToggleIsFetchingActionType => ({
+    type: TOGGLE_IS_FETCHING,
+    isFetching
+})
 type ToggleFollowingProgressActionType = {
     type: typeof TOGGLE_IS_FOLLOWING_PROGRESS
     isFetching: boolean
@@ -101,7 +111,8 @@ export const toggleFollowingProgress = (isFetching: boolean, userId: number): To
 })
 
 export const requestUsers = (page: number, pageSize: number) => {
-    return async (dispatch: any) => {
+    return async (dispatch: any, getState: any) => {
+        getState()
         dispatch(toggleIsFetching(true));
         dispatch(setCurrentPage(page));
 
