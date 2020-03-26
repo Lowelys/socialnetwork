@@ -65,7 +65,6 @@ type ActionTypes = FollowSuccessActionType | UnfollowSuccessActionType | SetUser
     SetCurrentPageActionType | SetTotalUsersCountActionType | ToggleIsFetchingActionType |
     ToggleFollowingProgressActionType
 
-
 type FollowSuccessActionType = {
     type: typeof FOLLOW
     userId: number
